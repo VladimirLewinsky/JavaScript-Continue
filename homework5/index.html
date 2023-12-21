@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid black;
+      gap: 4px;
+    }
+    .el__id {
+      padding-left: 50%;
+    }
+    .el {
+      border: 1px dotted blueviolet;
+      background-color: lightcoral;
+      h2 {
+        text-align: center;
+      }
+    }
+    .el:hover {
+      box-shadow: 5px 5px 10px black;
+      cursor: pointer;
+      background-color: blueviolet;
+    }
+    .el:active {
+      box-shadow: none;
+      border: 2px dotted blueviolet;
+    }
+
+    /* .el:last-child{
+        text-align: center;
+    } */
+  </style>
+  <body>
+    <div class="container"></div>
+
+    <script src="data.js"></script>
+    <script>
+      const data = JSON.parse(dataBase);
+      const container = document.querySelector(".container");
+
+      data.forEach((element) => {
+        const el = document.createElement("div");
+        container.appendChild(el);
+        el.classList = "el";
+
+        const general = document.createElement("h2");
+        general.textContent = element.type;
+        container.lastElementChild.appendChild(general);
+
+        const setup = document.createElement("p");
+        setup.textContent = element.setup;
+        container.lastElementChild.appendChild(setup);
+
+        const pucnh = document.createElement("p");
+        pucnh.textContent = element.punchline;
+        container.lastElementChild.appendChild(pucnh);
+
+        const id = document.createElement("a");
+        id.href = element.id;
+        id.textContent = element.id;
+        id.classList = "el__id";
+        container.lastElementChild.appendChild(id);
+      });
+    </script>
+  </body>
+</html>
