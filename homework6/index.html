@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <style>
+    .container{
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 15px;
+        width: 1200px;
+       
+        
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="item">
+        <div
+          class="container_img"
+          style="background-image: url(./img/bottom_img6.png)"
+        >
+          <div class="container_background">
+            <div class="add_hidden">
+              <a class="add_icon" href="#"
+                ><img src="img/icon/hover/add_basket_hover.svg" alt="img"
+              /></a>
+              <h3 class="add_text">Add to Cart</h3>
+            </div>
+          </div>
+        </div>
+        <h3 class="name">ELLERY X M'O CAPSULE</h3>
+        <p class="about">
+          Known for her sculptural takes on traditional tailoring, Australian
+          arbiter of cool Kym Ellery teams up with Moda Operandi.
+        </p>
+        <p class="price">$52.00</p>
+    
+      </div>
+    </div>
+    <script src="data.js"></script>
+    <script>
+      const container = document.querySelector(".container");
+      const dataProduct = JSON.parse(dataBase);
+      console.log(dataProduct);
+      dataProduct.forEach((element) => {
+        const item = document.createElement("div");
+        container.appendChild(item);
+        item.classList = "item";
+        
+
+        const contIMg = document.createElement("div");
+        item.appendChild(contIMg);
+        contIMg.classList = "container_img";
+        contIMg.style = element.img;
+
+        
+
+        const contback = document.createElement("div");
+        contback.classList = "container_background"
+        contIMg.appendChild(contback);
+
+        const contaddHiden = document.createElement("div");
+        contaddHiden.classList = "add_hidden";
+        contback.appendChild(contaddHiden);
+
+        const icad = document.createElement('a');
+        icad.classList = 'add_icon';
+        contaddHiden.appendChild(icad);
+
+        const icadIMg = document.createElement('img');
+        icadIMg.src = "img/icon/hover/add_basket_hover.svg";
+        icadIMg.alt ="img";
+        contaddHiden.appendChild(icadIMg);
+
+        const addtext = document.createElement('h3');
+        addtext.textContent = "Add to Cart";
+        addtext.classList = "add_text";
+        contaddHiden.appendChild(addtext);
+
+
+        
+
+        const h3Name = document.createElement("h3");
+        h3Name.textContent = element.name;
+        item.appendChild(h3Name);
+        h3Name.classList = "name";
+
+        const about = document.createElement("p");
+        about.textContent = element.text;
+        item.appendChild(about);
+        h3Name.classList = "about";
+
+        const price = document.createElement("p");
+        price.textContent = element.price;
+        item.appendChild(price);
+        price.classList = "price";
+        price.style.color = 'red';
+      });
+    </script>
+  </body>
+</html>
