@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <style>
+    .container {
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 15px;
+      width: 1200px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <!-- Шаблон -->
+      <!-- <div class="item">
+        <div
+          class="container_img"
+          style="background-image: url(./img/bottom_img6.png)"
+        >
+          <div class="container_background">
+            <div class="add_hidden">
+              <a class="add_icon" href="#"
+                ><img
+                  class="basket"
+                  src="img/icon/hover/add_basket_hover.svg"
+                  alt="img"
+              /></a>
+              <h3 class="add_text">Add to Cart</h3>
+            </div>
+          </div>
+        </div>
+        <h3 class="name">ELLERY X M'O CAPSULE</h3>
+        <p class="about">
+          Known for her sculptural takes on traditional tailoring, Australian
+          arbiter of cool Kym Ellery teams up with Moda Operandi.
+        </p>
+        <p class="price" style="color: red">$52.00</p>
+      </div> -->
+    </div>
+    <div class="about_all">
+      <div class="about_footer">
+        <img class="about_img" src="img/F.svg" alt="photo" />
+        <h2 class="about_title">Free Delivery</h2>
+        <p class="about_text">
+          Worldwide delivery on all. Authorit tively morph next-generation innov
+          tion with extensive models.
+        </p>
+      </div>
+      <div class="about_footer">
+        <img class="about_img" src="img/Fo.svg" alt="form" />
+        <h2 class="about_title">Sales &amp; discounts</h2>
+        <p class="about_text">
+          Worldwide delivery on all. Authorit tively morph next-generation innov
+          tion with extensive models.
+        </p>
+      </div>
+      <div class="about_footer">
+        <img class="about_img" src="img/For.svg" alt="form" />
+        <h2 class="about_title">Quality assurance</h2>
+        <p class="about_text">
+          Worldwide delivery on all. Authorit tively morph next-generation innov
+          tion with extensive models.
+        </p>
+      </div>
+    </div>
+    <div class="cart_items">
+      <h1>Cart Items</h1>
+      <!-- Шаблон -->
+      <!-- <div class="cart">
+        <div class="cart__img">
+          <img src="./img/botoom_img1.png" alt="" />
+        </div>
+        <div class="cart__about">
+          <h1 class="cart__about_h1">MANGO PEOPLE T-SHIRT"</h1>
+          <p class="cart__about_price">Price: $300</p>
+          <p class="cart__about_color">Color: Red</p>
+          <p class="cart__about_size">Size: Xl</p>
+          <p class="cart__about_quant">
+            Quantity
+            <input class="quant_input" type="number" value="1" />
+          </p>
+        </div>
+        <svg
+          class="cart__svg"
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+        >
+          <path
+            d="M11.2453 9L17.5302 2.71516C17.8285 2.41741 17.9962 2.01336 17.9966 1.59191C17.997 1.17045 17.8299 0.76611 17.5322 0.467833C17.2344 0.169555 16.8304 0.00177586 16.4089 0.00140366C15.9875 0.00103146 15.5831 0.168097 15.2848 0.465848L9 6.75069L2.71516 0.465848C2.41688 0.167571 2.01233 0 1.5905 0C1.16868 0 0.764125 0.167571 0.465848 0.465848C0.167571 0.764125 0 1.16868 0 1.5905C0 2.01233 0.167571 2.41688 0.465848 2.71516L6.75069 9L0.465848 15.2848C0.167571 15.5831 0 15.9877 0 16.4095C0 16.8313 0.167571 17.2359 0.465848 17.5342C0.764125 17.8324 1.16868 18 1.5905 18C2.01233 18 2.41688 17.8324 2.71516 17.5342L9 11.2493L15.2848 17.5342C15.5831 17.8324 15.9877 18 16.4095 18C16.8313 18 17.2359 17.8324 17.5342 17.5342C17.8324 17.2359 18 16.8313 18 16.4095C18 15.9877 17.8324 15.5831 17.5342 15.2848L11.2453 9Z"
+            fill="#575757"
+          />
+        </svg>
+      </div> -->
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+      const container = document.querySelector(".container");
+      const dataProduct = JSON.parse(dataBase);
+      const cartItems = document.querySelector(".cart_items");
+      
+      // создаем карточки товаров
+      dataProduct.forEach((element) => {
+        const item = document.createElement("div");
+        container.appendChild(item);
+        item.classList = "item";
+
+        const contIMg = document.createElement("div");
+        item.appendChild(contIMg);
+        contIMg.classList = "container_img";
+        contIMg.style = element.img;
+
+        const contback = document.createElement("div");
+        contback.classList = "container_background";
+        contIMg.appendChild(contback);
+
+        const contaddHiden = document.createElement("div");
+        contaddHiden.classList = "add_hidden";
+        contback.appendChild(contaddHiden);
+
+        const icad = document.createElement("a");
+        icad.classList = "add_icon";
+        contaddHiden.appendChild(icad);
+
+        const icadIMg = document.createElement("img");
+        icadIMg.src = "img/icon/hover/add_basket_hover.svg";
+        icadIMg.alt = "img";
+        icadIMg.classList = "basket";
+        icad.appendChild(icadIMg);
+
+        const addtext = document.createElement("h3");
+        addtext.textContent = "Add to Cart";
+        addtext.classList = "add_text";
+        contaddHiden.appendChild(addtext);
+
+        const h3Name = document.createElement("h3");
+        h3Name.textContent = element.name;
+        item.appendChild(h3Name);
+        h3Name.classList = "name";
+
+        const about = document.createElement("p");
+        about.textContent = element.text;
+        item.appendChild(about);
+        about.classList = "about";
+
+        const price = document.createElement("p");
+        price.textContent = element.price;
+        item.appendChild(price);
+        price.classList = "price";
+        price.style.color = "red";
+      });
+
+      // const cartItems = document.querySelector(".cart_items");
+      const aCart = document.querySelectorAll(".add_hidden");
+      const addCart = [...aCart];
+
+      // console.log(addCart);
+      // console.log(dataProduct[0].name);
+
+      // добовляем товары в раздел Cart items после клика на add to cart
+      addCart.forEach((element) => {
+        element.addEventListener("click", function (e) {
+
+          // ищем индекс элемента, чтобы достать данные из массива JSON
+          let cartIndex = addCart.indexOf(element);
+
+          const cart = document.createElement("div");
+          cart.classList = "cart";
+          cartItems.appendChild(cart);
+
+          const cartImg = document.createElement("div");
+          cartImg.classList = "cart__img";
+          // cartImg.style = dataProduct[cartIndex].img;
+          cart.appendChild(cartImg);
+
+          const cartImglogo = document.createElement("img");
+          cartImglogo.src = dataProduct[cartIndex].miniimg;
+          cartImg.appendChild(cartImglogo);
+
+          const cartAbout = document.createElement("div");
+          cartAbout.classList = "cart__about";
+          cart.appendChild(cartAbout);
+
+          const cartAboutTitle = document.createElement("h1");
+          cartAbout.appendChild(cartAboutTitle);
+          cartAboutTitle.classList = "cart__about_h1";
+          cartAboutTitle.textContent = dataProduct[cartIndex].name;
+
+          const cartAboutPrice = document.createElement("p");
+          cartAbout.appendChild(cartAboutPrice);
+          cartAboutPrice.classList = "cart__about_price";
+          cartAboutPrice.textContent = "Price: " + dataProduct[cartIndex].price;
+
+          const cartAboutColor = document.createElement("p");
+          cartAbout.appendChild(cartAboutColor);
+          cartAboutColor.classList = "cart__about_color";
+          cartAboutColor.textContent = "Color: " + dataProduct[cartIndex].color;
+
+          const cartAboutSize = document.createElement("p");
+          cartAbout.appendChild(cartAboutSize);
+          cartAboutSize.classList = "cart__about_color";
+          cartAboutSize.textContent = "Color: " + dataProduct[cartIndex].size;
+
+          const itemQuant = document.createElement("p");
+          cartAbout.appendChild(itemQuant);
+          itemQuant.classList = "item__about_quant";
+          itemQuant.textContent = "Quantity: ";
+
+          const itemInpu = document.createElement("input");
+          itemQuant.appendChild(itemInpu);
+          itemInpu.classList = "quant_input";
+          itemInpu.value = dataProduct[cartIndex].quantity;
+          itemInpu.type = "number";
+
+          const itemSvg = document.createElement("img");
+          itemSvg.classList = "cart__svg";
+          itemSvg.src = dataProduct[cartIndex].svg;
+          cart.appendChild(itemSvg);
+
+          // добовляем список крестиков
+          const svgRemove = document.querySelectorAll(".cart__svg");
+          const svgArray = [...svgRemove];
+
+          // добовляем событие удаления элемента
+          svgArray.forEach((el) => {
+            el.addEventListener("click", function (e) {
+              el.parentElement.remove();
+              visibleOrHidden(cartItems);
+            });
+          });
+          visibleOrHidden(cartItems);
+        });
+      });
+      visibleOrHidden(cartItems);
+      
+      // функция для изменения  видимости блока 
+      function visibleOrHidden (object){
+        object.childElementCount > 1
+        ? (cartItems.style = "visibility: visible")
+        : (cartItems.style = "visibility: hidden;");
+
+      }
+    </script>
+  </body>
+</html>
